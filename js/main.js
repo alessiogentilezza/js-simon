@@ -19,7 +19,7 @@ let numeriCasuali = []; //qui ci finiscono tutti i numeri già usciti
 
 //ciclo per generare i "5" numeri
 
-for (let i = 0; i < 6; i++) {
+for (let i = 0; i < 5; i++) {
     const newValidRandomNumber = generateUniqueRandomNumber(numeriCasuali, 1, 50);
     numeriCasuali.push(newValidRandomNumber);
 }
@@ -66,10 +66,24 @@ function displayNone() {
 
 setTimeout(memory, 6000);
 
+let numeriInseriti =[];
+
 function memory() {
-    let numeri;
+
+    let numeriVisti;
+
     for (let i = 0; i < numeriCasuali.length; i++) {
-        numeri = parseInt(prompt('Inserisci i numeri che hai appena visto'));
+        numeriVisti = parseInt(prompt('Inserisci i numeri che hai appena visto'));
+        numeriInseriti.push(numeriVisti);
     }
-    }
+
+    console.log(numeriInseriti);
+}
+
+//Inizia il confronto dei due array
+
+let checkNumber = [];
+for (let i = 0; i < numeriCasuali.length; i++) {
+
+}
 
