@@ -15,22 +15,27 @@ Consigli del giorno:
 
 const tieniIlTempo = document.getElementById("tempo");
 
-let numberBlacklist = []; //qui ci finiscono tutti i numeri già usciti
+let numeriCasuali = []; //qui ci finiscono tutti i numeri già usciti
 
-for (let i = 0; i < 5; i++) {
-    const newValidRandomNumber = generateUniqueRandomNumber(numberBlacklist, 1, 50);
-    numberBlacklist.push(newValidRandomNumber);
+//ciclo per generare i "5" numeri
+
+for (let i = 0; i < 6; i++) {
+    const newValidRandomNumber = generateUniqueRandomNumber(numeriCasuali, 1, 50);
+    numeriCasuali.push(newValidRandomNumber);
+}
+// ciclo per stampa dell'array con i "5" numeri generati
+
+for (let i = 0; i < numeriCasuali.length; i++) {
+    console.log(numeriCasuali[i]);
 }
 
-for (let i = 0; i < 5; i++) {
-    console.log(numberBlacklist[i]);
-}
+//funzione per generare i numeru casuali univoci
 
 function generateUniqueRandomNumber(blacklist, min, max) {
     let isValidNumber = false;
     let randomNumber;
     while (!isValidNumber) {
-        randomNumber = Math.floor(Math.random() * (max - min +1)) + min;
+        randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
         if (!blacklist.includes(randomNumber)) {
             isValidNumber = true;
         }
@@ -38,4 +43,33 @@ function generateUniqueRandomNumber(blacklist, min, max) {
     return randomNumber;
 }
 
+// function generateRandomNumber(min, max) {
+//     const number = Math.floor(Math.random() * (max - min +1)) + min;
+//     return number;
+// }
+
+
+//ripoto l'array nella pagina html
+
+tieniIlTempo.innerHTML = numeriCasuali;
+
+
+//Timer prima che scompaiano i numeri
+
+setTimeout(displayNone, 5000);
+
+function displayNone() {
+    tieniIlTempo.classList.add('d-none');
+}
+
+//Inseriti i prompt per l'inserimento dei numeri
+
+setTimeout(memory, 6000);
+
+function memory() {
+    let numeri;
+    for (let i = 0; i < numeriCasuali.length; i++) {
+        numeri = parseInt(prompt('Inserisci i numeri che hai appena visto'));
+    }
+    }
 
