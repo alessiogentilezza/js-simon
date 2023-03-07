@@ -14,12 +14,20 @@ Consigli del giorno:
 */
 
 const tieniIlTempo = document.getElementById("tempo");
+const risultati = document.getElementById("risultati");
 
 // array numeri generati
 let numeriCasuali = [];
 
 // array numeri inseriti
 let numeriInseriti = [];
+
+// array numeri diversi
+let diversi = [];
+
+// array numeri inseriti
+let uguali = [];
+
 
 
 //ciclo per generare i "5" numeri
@@ -80,26 +88,21 @@ function memory() {
         numeriInseriti.push(numeriVisti);
     }
 
-    console.log(numeriInseriti);
-
-    return numeriInseriti;
-}
-
-//Inizia il confronto dei due array
-
-let diversi = [];
-
-let uguali = []; //mancano i numeri inseriti
-
-for (let i = 0; i < numeriCasuali.length; i++) {
-    if (numeriInseriti.includes(numeriCasuali[i])) {
-        uguali.push(numeriCasuali[i]);
-    } else {
-        diversi.push(numeriCasuali[i]);
+    for (let i = 0; i < numeriCasuali.length; i++) {
+        if (numeriInseriti.includes(numeriCasuali[i])) {
+            uguali.push(numeriCasuali[i]);
+        } else {
+            diversi.push(numeriCasuali[i]);
+        }
     }
+
+    console.log("numeriCasuali: " + numeriCasuali);
+    console.log("numeriInseriti: " + numeriInseriti);
+    console.log("Numeri uguali: " + uguali);
+    console.log("Numeri diversi: " + diversi);
+
+    //risultati nella pagina html
+risultati.innerHTML = `NumeriInseriti: ${numeriInseriti}<br> Numeri Uguali: ${uguali}<br>Numeri Diversi ${diversi}<br>`;
+
 }
 
-console.log("numeriCasuali: " + numeriCasuali);
-console.log("numeriInseriti: " + numeriInseriti);
-console.log("Numeri uguali: " + uguali);
-console.log("Numeri diversi: " + diversi);

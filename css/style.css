@@ -6,15 +6,17 @@
 
 body {
     font-family: sans-serif;
-    padding: 20px;
+    margin: 20px;
 }
 
 .container {
-    max-width: 1170px;
-    margin: 0 auto;
+    max-width: 500px;
+    max-height: 500px;
+    margin: auto;
     background-color: #b91547;
-    text-align: center;
-    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 10px;
 
     /* position: absolute;
@@ -30,6 +32,6 @@ p {
     /* color: white; */
 }
 
-.d-none{
+.d-none {
     display: none;
 }
