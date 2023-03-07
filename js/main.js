@@ -15,7 +15,12 @@ Consigli del giorno:
 
 const tieniIlTempo = document.getElementById("tempo");
 
-let numeriCasuali = []; //qui ci finiscono tutti i numeri già usciti
+// array numeri generati
+let numeriCasuali = [];
+
+// array numeri inseriti
+let numeriInseriti = [];
+
 
 //ciclo per generare i "5" numeri
 
@@ -66,8 +71,6 @@ function displayNone() {
 
 setTimeout(memory, 6000);
 
-let numeriInseriti =[];
-
 function memory() {
 
     let numeriVisti;
@@ -78,12 +81,25 @@ function memory() {
     }
 
     console.log(numeriInseriti);
+
+    return numeriInseriti;
 }
 
 //Inizia il confronto dei due array
 
-let checkNumber = [];
-for (let i = 0; i < numeriCasuali.length; i++) {
+let diversi = [];
 
+let uguali = []; //mancano i numeri inseriti
+
+for (let i = 0; i < numeriCasuali.length; i++) {
+    if (numeriInseriti.includes(numeriCasuali[i])) {
+        uguali.push(numeriCasuali[i]);
+    } else {
+        diversi.push(numeriCasuali[i]);
+    }
 }
 
+console.log("numeriCasuali: " + numeriCasuali);
+console.log("numeriInseriti: " + numeriInseriti);
+console.log("Numeri uguali: " + uguali);
+console.log("Numeri diversi: " + diversi);
